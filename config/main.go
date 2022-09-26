@@ -5,9 +5,13 @@ import (
 
 	env "github.com/Netflix/go-env"
 	"github.com/joho/godotenv"
+
+	"github.com/abdukhashimov/go_api/pkg/logger"
 )
 
 type Environment struct {
+	logger.Options
+
 	Project struct {
 		Name       string `env:"PROJECT_NAME,default=golang_project"`
 		LogLevel   string `env:"LOG_LEVEL,default=info"`
