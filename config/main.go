@@ -9,7 +9,7 @@ import (
 
 type Environment struct {
 	Project struct {
-		Name       string `env:"PROJECT_NAME,default=edumix_rest_api"`
+		Name       string `env:"PROJECT_NAME,default=golang_project"`
 		LogLevel   string `env:"LOG_LEVEL,default=info"`
 		DevMode    bool   `env:"DEV_MODE,default=false"`
 		HashCost   int    `env:"HASH_COST,default=10"`
