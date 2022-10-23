@@ -2,10 +2,14 @@ syntax = "proto3";
 package user.service.v1;
 option go_package = "common/gen/go/user/service/v1";
 
-message StringMessage {
+message EchoResponse {
+  string value = 1;
+}
+
+message EchoRequest {
   string value = 1;
 }
 
 service UserService {
-  rpc Echo(StringMessage) returns (StringMessage) {}
+  rpc Echo(EchoRequest) returns (EchoResponse) {}
 }
