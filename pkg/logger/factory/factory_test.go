@@ -34,7 +34,7 @@ var logrusConfig = options.Logging{
 }
 
 var zapConfig = options.Logging{
-	ProjectName:    "Student Aggregator",
+	ProjectName:    "HTTP and gRPC Template",
 	Code:           options.ZAP,
 	LogLevel:       options.DEBUG,
 	DateTimeFormat: "2006-01-02 15:04:05",
