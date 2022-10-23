@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/abdukhashimov/go_api/pkg/logger"
-	"github.com/abdukhashimov/go_api/pkg/logger/config"
+	"github.com/abdukhashimov/go_api/pkg/logger/options"
 )
 
 const DateTimeFormat = "2006-01-02 15:04:05"
@@ -25,18 +25,18 @@ const (
 	ERRORF = "errorf"
 )
 
-var logrusConfig = config.Logging{
-	Code:           config.LOGRUS,
-	LogLevel:       config.DEBUG,
+var logrusConfig = options.Logging{
+	Code:           options.LOGRUS,
+	LogLevel:       options.DEBUG,
 	DateTimeFormat: DateTimeFormat,
 	EnableCaller:   false,
 	Out:            nil,
 }
 
-var zapConfig = config.Logging{
+var zapConfig = options.Logging{
 	ProjectName:    "Student Aggregator",
-	Code:           config.ZAP,
-	LogLevel:       config.DEBUG,
+	Code:           options.ZAP,
+	LogLevel:       options.DEBUG,
 	DateTimeFormat: "2006-01-02 15:04:05",
 	DateFormat:     "2006-01-02",
 	Encoding:       "json",
@@ -57,7 +57,7 @@ type ZapLog struct {
 
 var oldStdout *os.File
 
-func buildLogger(lc config.Logging) (*os.File, *os.File, logger.Logger, error) {
+func buildLogger(lc options.Logging) (*os.File, *os.File, logger.Logger, error) {
 	oldStdout = os.Stdout
 	reader, writer, _ := os.Pipe()
 	os.Stdout = writer

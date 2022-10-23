@@ -4,20 +4,20 @@ import (
 	"fmt"
 
 	"github.com/abdukhashimov/go_api/pkg/logger"
-	"github.com/abdukhashimov/go_api/pkg/logger/config"
 	"github.com/abdukhashimov/go_api/pkg/logger/logrus"
+	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"github.com/abdukhashimov/go_api/pkg/logger/zap"
 )
 
 // logger map to map logger code to logger builder
 var logFactoryBuilderMap = map[string]loggerBuilder{
-	config.LOGRUS: &logrus.Factory{},
-	config.ZAP:    &zap.Factory{},
+	options.LOGRUS: &logrus.Factory{},
+	options.ZAP:    &zap.Factory{},
 }
 
 // interface for logger factory
 type loggerBuilder interface {
-	Build(cfg *config.Logging) (logger.Logger, error)
+	Build(cfg *options.Logging) (logger.Logger, error)
 }
 
 // accessors for factoryBuilderMap
@@ -31,7 +31,7 @@ func getLogFactoryBuilder(key string) (loggerBuilder, error) {
 }
 
 // Build logger using appropriate log factory
-func Build(cfg *config.Logging) (logger.Logger, error) {
+func Build(cfg *options.Logging) (logger.Logger, error) {
 	logFactoryBuilder, err := getLogFactoryBuilder(cfg.Code)
 	if err != nil {
 		return nil, err

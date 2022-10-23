@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/Netflix/go-env"
-	logConfig "github.com/abdukhashimov/go_api/pkg/logger/config"
+	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"github.com/joho/godotenv"
 	"gopkg.in/yaml.v3"
 )
@@ -18,7 +18,7 @@ const (
 )
 
 type Config struct {
-	Logging logConfig.Logging `yaml:"logging"`
+	Logging options.Logging `yaml:"logging"`
 	Project struct {
 		Name    string `env:"PROJECT_NAME" yaml:"name"`
 		Mode    string `env:"APPLICATION_MODE"`

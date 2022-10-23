@@ -5,14 +5,14 @@ import (
 	"time"
 
 	"github.com/abdukhashimov/go_api/pkg/logger"
-	"github.com/abdukhashimov/go_api/pkg/logger/config"
+	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"go.uber.org/zap"
 
 	"go.uber.org/zap/zapcore"
 )
 
 // RegisterLog creates a new Zap logger
-func RegisterLog(cfg *config.Logging) (logger.Logger, error) {
+func RegisterLog(cfg *options.Logging) (logger.Logger, error) {
 	encoderCfg := loadEncoderConfig(cfg.DevMode, cfg.DateTimeFormat)
 
 	globalLogLevel, err := zapcore.ParseLevel(cfg.LogLevel)
@@ -39,7 +39,7 @@ func RegisterLog(cfg *config.Logging) (logger.Logger, error) {
 	return sugar, nil
 }
 
-// loadEncoderConfig creates zap encode config
+// loadEncoderConfig creates zap encode options
 func loadEncoderConfig(devMode bool, timeFormat string) zapcore.EncoderConfig {
 	cfg := zap.NewProductionEncoderConfig()
 

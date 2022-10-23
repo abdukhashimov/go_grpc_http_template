@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/abdukhashimov/go_api/pkg/logger"
-	"github.com/abdukhashimov/go_api/pkg/logger/config"
+	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"github.com/sirupsen/logrus"
 )
 
@@ -16,7 +16,7 @@ type logWrapper struct {
 }
 
 // RegisterLogrusLog creates a new logrus logger
-func RegisterLogrusLog(cfg *config.Logging) (logger.Logger, error) {
+func RegisterLogrusLog(cfg *options.Logging) (logger.Logger, error) {
 	logrusLog := logrus.New()
 	logrusLog.SetFormatter(&logrus.TextFormatter{})
 	logrusLog.SetReportCaller(true)
@@ -34,7 +34,7 @@ func RegisterLogrusLog(cfg *config.Logging) (logger.Logger, error) {
 }
 
 // customizeLogrusLogFromConfig customizes log based on parameters from configuration
-func customizeLogrusLogFromConfig(log *logrus.Logger, cfg *config.Logging) error {
+func customizeLogrusLogFromConfig(log *logrus.Logger, cfg *options.Logging) error {
 	log.SetReportCaller(cfg.EnableCaller)
 	l := &log.Level
 	err := l.UnmarshalText([]byte(cfg.LogLevel))
