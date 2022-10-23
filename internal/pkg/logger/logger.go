@@ -1,9 +1,7 @@
 // Package logger represents a generic logging interface
 package logger
 
-import (
-	"github.com/abdukhashimov/go_api/pkg/logger"
-)
+import "github.com/abdukhashimov/go_api/pkg/logger"
 
 // Log is a package level variable, every program should access logging function through "Log"
 var (
