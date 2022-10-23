@@ -9,6 +9,7 @@ It translates gRPC into RESTful JSON APIs.
 package v1
 
 import (
+	extV1 "common/gen/go/user/service/v1"
 	"context"
 	"io"
 	"net/http"
@@ -35,8 +36,8 @@ var (
 	filter_MessageService_ListMessages_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_MessageService_ListMessages_0(ctx context.Context, marshaler runtime.Marshaler, client MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListMessagesRequest
+func request_MessageService_ListMessages_0(ctx context.Context, marshaler runtime.Marshaler, client extV1.MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.ListMessagesRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -51,8 +52,8 @@ func request_MessageService_ListMessages_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_MessageService_ListMessages_0(ctx context.Context, marshaler runtime.Marshaler, server MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListMessagesRequest
+func local_request_MessageService_ListMessages_0(ctx context.Context, marshaler runtime.Marshaler, server extV1.MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.ListMessagesRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -67,8 +68,8 @@ func local_request_MessageService_ListMessages_0(ctx context.Context, marshaler 
 
 }
 
-func request_MessageService_GetMessage_0(ctx context.Context, marshaler runtime.Marshaler, client MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetMessageRequest
+func request_MessageService_GetMessage_0(ctx context.Context, marshaler runtime.Marshaler, client extV1.MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.GetMessageRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -93,8 +94,8 @@ func request_MessageService_GetMessage_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_MessageService_GetMessage_0(ctx context.Context, marshaler runtime.Marshaler, server MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetMessageRequest
+func local_request_MessageService_GetMessage_0(ctx context.Context, marshaler runtime.Marshaler, server extV1.MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.GetMessageRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -123,8 +124,8 @@ var (
 	filter_MessageService_CreateMessage_0 = &utilities.DoubleArray{Encoding: map[string]int{"message": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_MessageService_CreateMessage_0(ctx context.Context, marshaler runtime.Marshaler, client MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMessageRequest
+func request_MessageService_CreateMessage_0(ctx context.Context, marshaler runtime.Marshaler, client extV1.MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.CreateMessageRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -147,8 +148,8 @@ func request_MessageService_CreateMessage_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_MessageService_CreateMessage_0(ctx context.Context, marshaler runtime.Marshaler, server MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMessageRequest
+func local_request_MessageService_CreateMessage_0(ctx context.Context, marshaler runtime.Marshaler, server extV1.MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.CreateMessageRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -175,8 +176,8 @@ var (
 	filter_MessageService_UpdateMessage_0 = &utilities.DoubleArray{Encoding: map[string]int{"message": 0, "name": 1}, Base: []int{1, 2, 1, 0, 0}, Check: []int{0, 1, 2, 3, 2}}
 )
 
-func request_MessageService_UpdateMessage_0(ctx context.Context, marshaler runtime.Marshaler, client MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMessageRequest
+func request_MessageService_UpdateMessage_0(ctx context.Context, marshaler runtime.Marshaler, client extV1.MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.UpdateMessageRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -223,8 +224,8 @@ func request_MessageService_UpdateMessage_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_MessageService_UpdateMessage_0(ctx context.Context, marshaler runtime.Marshaler, server MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMessageRequest
+func local_request_MessageService_UpdateMessage_0(ctx context.Context, marshaler runtime.Marshaler, server extV1.MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.UpdateMessageRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -271,8 +272,8 @@ func local_request_MessageService_UpdateMessage_0(ctx context.Context, marshaler
 
 }
 
-func request_MessageService_DeleteMessage_0(ctx context.Context, marshaler runtime.Marshaler, client MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMessageRequest
+func request_MessageService_DeleteMessage_0(ctx context.Context, marshaler runtime.Marshaler, client extV1.MessageServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.DeleteMessageRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -297,8 +298,8 @@ func request_MessageService_DeleteMessage_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_MessageService_DeleteMessage_0(ctx context.Context, marshaler runtime.Marshaler, server MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMessageRequest
+func local_request_MessageService_DeleteMessage_0(ctx context.Context, marshaler runtime.Marshaler, server extV1.MessageServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq extV1.DeleteMessageRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -327,7 +328,7 @@ func local_request_MessageService_DeleteMessage_0(ctx context.Context, marshaler
 // UnaryRPC     :call MessageServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterMessageServiceHandlerFromEndpoint instead.
-func RegisterMessageServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server MessageServiceServer) error {
+func RegisterMessageServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server extV1.MessageServiceServer) error {
 
 	mux.Handle("GET", pattern_MessageService_ListMessages_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -485,15 +486,15 @@ func RegisterMessageServiceHandlerFromEndpoint(ctx context.Context, mux *runtime
 // RegisterMessageServiceHandler registers the http handlers for service MessageService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
 func RegisterMessageServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterMessageServiceHandlerClient(ctx, mux, NewMessageServiceClient(conn))
+	return RegisterMessageServiceHandlerClient(ctx, mux, extV1.NewMessageServiceClient(conn))
 }
 
 // RegisterMessageServiceHandlerClient registers the http handlers for service MessageService
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "MessageServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "MessageServiceClient"
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "extV1.MessageServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "extV1.MessageServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "MessageServiceClient" to call the correct interceptors.
-func RegisterMessageServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client MessageServiceClient) error {
+// "extV1.MessageServiceClient" to call the correct interceptors.
+func RegisterMessageServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client extV1.MessageServiceClient) error {
 
 	mux.Handle("GET", pattern_MessageService_ListMessages_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())

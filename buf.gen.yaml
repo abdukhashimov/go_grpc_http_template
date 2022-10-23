@@ -7,6 +7,7 @@ plugins:
   - name: grpc-gateway
     out: internal
     opt:
+      - standalone=true
       - generate_unbound_methods=true
   - name: openapiv2
     out: api/openapi
