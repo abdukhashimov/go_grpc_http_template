@@ -1,19 +1,19 @@
+// Package logger represents a generic logging interface
 package logger
 
-import "go.uber.org/zap"
-
-// Logger ...
+// Logger represent common interface for logging function
 type Logger interface {
-	Debugf(format string, a ...any)
-	Infof(format string, a ...any)
-	Warnf(format string, a ...any)
-	Errorf(format string, a ...any)
-	Fatalf(format string, a ...any)
+	Debugf(format string, args ...interface{})
+	Infof(format string, args ...interface{})
+	Warnf(format string, args ...interface{})
+	Errorf(format string, args ...interface{})
+	Fatalf(format string, args ...interface{})
 
-	Debug(message string, fields ...zap.Field)
-	Info(message string, fields ...zap.Field)
-	Warn(message string, fields ...zap.Field)
-	Error(message string, fields ...zap.Field)
-	Fatal(message string, fields ...zap.Field)
+	Debug(args ...interface{})
+	Info(args ...interface{})
+	Warn(args ...interface{})
+	Error(args ...interface{})
+	Fatal(args ...interface{})
+
 	Sync() error
 }
