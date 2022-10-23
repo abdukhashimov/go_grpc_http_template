@@ -2,14 +2,97 @@ syntax = "proto3";
 package user.service.v1;
 option go_package = "common/gen/go/user/service/v1";
 
-message EchoResponse {
-  string value = 1;
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
+
+
+message Message {
+  string name = 1;
 }
 
-message EchoRequest {
-  string value = 1;
+// Generated according to https://cloud.google.com/apis/design/standard_methods
+service MessageService {
+  rpc ListMessages(ListMessagesRequest) returns (ListMessagesResponse) {
+    option (google.api.http) = {
+      get: "/v1/messages"
+    };
+  }
+
+  rpc GetMessage(GetMessageRequest) returns (Message) {
+    option (google.api.http) = {
+      get: "/v1/{name=messages/*}"
+    };
+  }
+
+  rpc CreateMessage(CreateMessageRequest) returns (Message) {
+    option (google.api.http) = {
+      post: "/v1/messages"
+      body: "message"
+    };
+  }
+
+  rpc UpdateMessage(UpdateMessageRequest) returns (Message) {
+    option (google.api.http) = {
+      patch: "/v1/{message.name=messages/*}"
+      body: "message"
+    };
+  }
+
+  rpc DeleteMessage(DeleteMessageRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/v1/{name=messages/*}"
+    };
+  }
 }
 
-service UserService {
-  rpc Echo(EchoRequest) returns (EchoResponse) {}
+message ListMessagesRequest {
+  // The parent resource name, for example, "shelves/shelf1"
+  string parent = 1;
+
+  // The maximum number of items to return.
+  int32 page_size = 2;
+
+  // The next_page_token value returned from a previous List request, if any.
+  string page_token = 3;
+}
+
+message ListMessagesResponse {
+  // The field name should match the noun "message" in the method name.
+  // There will be a maximum number of items returned based on the page_size field in the request.
+  repeated Message messages = 1;
+
+  // Token to retrieve the next page of results, or empty if there are no more results in the list.
+  string next_page_token = 2;
+}
+
+message GetMessageRequest {
+  // The field will contain name of the resource requested.
+  string name = 1;
+}
+
+message CreateMessageRequest {
+  // The parent resource name where the message is to be created.
+  string parent = 1;
+
+  // The message id to use for this message.
+  string message_id = 2;
+
+  // The message resource to create.
+  // The field name should match the Noun in the method name.
+  Message message = 3;
+}
+
+message UpdateMessageRequest {
+  // The message resource which replaces the resource on the server.
+  Message message = 1;
+
+  // The update mask applies to the resource. For the `FieldMask` definition,
+  // see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+  google.protobuf.FieldMask update_mask = 2;
+}
+
+message DeleteMessageRequest {
+  // The resource name of the message to be deleted.
+  string name = 1;
 }

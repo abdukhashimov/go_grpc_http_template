@@ -4,3 +4,7 @@ plugins:
     out: internal
   - name: go-grpc
     out: internal
+  - name: grpc-gateway
+    out: internal
+    opt:
+      - generate_unbound_methods=true
