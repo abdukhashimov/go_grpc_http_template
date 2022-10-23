@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/Netflix/go-env"
+	"github.com/abdukhashimov/go_api/internal/pkg/logger"
 	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"github.com/joho/godotenv"
 	"gopkg.in/yaml.v3"
@@ -36,7 +37,7 @@ func Load() *Config {
 
 	err := godotenv.Load()
 	if err != nil && !os.IsNotExist(err) {
-		panic(err)
+		logger.Log.Warn(".env file is not found")
 	}
 
 	appMode := getAppMode()
