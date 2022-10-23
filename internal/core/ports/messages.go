@@ -7,9 +7,9 @@ import (
 )
 
 type MessagesService interface {
-	Create(ctx context.Context, input v1.CreateMessageRequest) (*v1.Message, error)
+	Create(ctx context.Context, input *v1.CreateMessageRequest) (*v1.Message, error)
 }
 
 type MessagesStore interface {
-	Create(ctx context.Context, input v1.CreateMessageRequest) (string, error)
+	Create(ctx context.Context, input *v1.CreateMessageRequest) (string, error)
 }
