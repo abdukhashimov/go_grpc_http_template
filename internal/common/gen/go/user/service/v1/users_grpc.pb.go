@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: api/protobuf/users/users.proto
+// source: api/protobuf/users.proto
 
 package v1
 
@@ -246,5 +246,5 @@ var MessageService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/protobuf/users/users.proto",
+	Metadata: "api/protobuf/users.proto",
 }

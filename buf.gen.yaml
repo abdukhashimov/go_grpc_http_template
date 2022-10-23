@@ -8,3 +8,5 @@ plugins:
     out: internal
     opt:
       - generate_unbound_methods=true
+  - name: openapiv2
+    out: api/openapi
