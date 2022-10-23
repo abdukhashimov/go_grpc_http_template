@@ -27,6 +27,11 @@ type Config struct {
 		Version string `env:"APPLICATION_VERSION" yaml:"version"`
 	} `yaml:"project"`
 
+	Http struct {
+		HTTP_HOST string `env:"HTTP_HOST" yaml:"HTTP_HOST"`
+		HTTP_PORT int    `env:"HTTP_PORT" yaml:"HTTP_PORT"`
+	} `yaml:"http"`
+
 	MongoDB struct {
 		URI string `env:"MONGODB_URI"`
 	}
