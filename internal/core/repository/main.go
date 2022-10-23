@@ -7,14 +7,14 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-type Repasitories struct {
+type Repositories struct {
 	Messages ports.MessagesStore
 }
 
-func NewRepositories(cfg *config.Config) *Repasitories {
+func NewRepositories(cfg *config.Config) *Repositories {
 	db := mongo.Database{}
 
-	return &Repasitories{
+	return &Repositories{
 		Messages: mongodb.NewMessagesRepo(&db),
 	}
 }
