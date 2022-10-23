@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/Netflix/go-env"
+	"github.com/abdukhashimov/go_api/internal/pkg/logger"
 	"github.com/abdukhashimov/go_api/pkg/logger/options"
 	"github.com/joho/godotenv"
 	"gopkg.in/yaml.v3"
@@ -19,11 +20,18 @@ const (
 
 type Config struct {
 	Logging options.Logging `yaml:"logging"`
+
 	Project struct {
 		Name    string `env:"PROJECT_NAME" yaml:"name"`
 		Mode    string `env:"APPLICATION_MODE"`
 		Version string `env:"APPLICATION_VERSION" yaml:"version"`
 	} `yaml:"project"`
+
+	Http struct {
+		HTTP_HOST string `env:"HTTP_HOST" yaml:"HTTP_HOST"`
+		HTTP_PORT int    `env:"HTTP_PORT" yaml:"HTTP_PORT"`
+	} `yaml:"http"`
+
 	MongoDB struct {
 		URI string `env:"MONGODB_URI"`
 	}
@@ -34,7 +42,7 @@ func Load() *Config {
 
 	err := godotenv.Load()
 	if err != nil && !os.IsNotExist(err) {
-		panic(err)
+		logger.Log.Warn(".env file is not found")
 	}
 
 	appMode := getAppMode()

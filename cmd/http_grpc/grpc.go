@@ -20,12 +20,20 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(http_grpc *cobra.Command, args []string) {
-		fmt.Println("grpc called")
+		port, _ := http_grpc.Flags().GetInt("port")
+
+		if port != 0 {
+			fmt.Println("Port number is provided")
+		} else {
+			fmt.Println("grpc called")
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(grpcCmd)
+
+	grpcCmd.PersistentFlags().Int("port", 9090, "A port that the grpc server can be served")
 
 	// Here you will define your flags and configuration settings.
 
