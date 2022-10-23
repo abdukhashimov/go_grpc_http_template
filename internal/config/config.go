@@ -19,11 +19,13 @@ const (
 
 type Config struct {
 	Logging options.Logging `yaml:"logging"`
+
 	Project struct {
 		Name    string `env:"PROJECT_NAME" yaml:"name"`
 		Mode    string `env:"APPLICATION_MODE"`
 		Version string `env:"APPLICATION_VERSION" yaml:"version"`
 	} `yaml:"project"`
+
 	MongoDB struct {
 		URI string `env:"MONGODB_URI"`
 	}
